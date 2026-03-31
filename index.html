@@ -7,11 +7,59 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .slideshow-container { position: relative; width: 100%; max-width: 100%; height: 500px; overflow: hidden; cursor: grab; }
+    .slideshow-container:active { cursor: grabbing; }
+    .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; }
+    .slide.active { opacity: 1; }
+    .slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+    .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; padding: 2rem; text-align: center; }
+    .dots { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; z-index: 10; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: all 0.3s; }
+    .dot.active { background: white; width: 24px; border-radius: 5px; }
+  </style>
 </head>
 <body class="bg-white text-gray-900">
-
-  <!-- Hero -->
+  <div class="slideshow-container">
+    <div class="slide active">
+      <img src="https://img.freepik.com/free-photo/ai-technology-microchip-background-digital-transformation-concept_53876-124669.jpg" alt="AI Technology">
+      <div class="slide-caption">
+        <h3 class="text-2xl font-bold">AI Agents Working 24/7</h3>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://img.freepik.com/free-photo/saas-concept-collage_23-2149399295.jpg" alt="SaaS Platform">
+      <div class="slide-caption">
+        <h3 class="text-2xl font-bold">Automate Your Entire SaaS</h3>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://img.freepik.com/free-photo/programming-background-collage_23-2149901771.jpg" alt="Development">
+      <div class="slide-caption">
+        <h3 class="text-2xl font-bold">Ship Features Faster</h3>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://img.freepik.com/free-photo/representations-user-experience-interface-design_23-2150169850.jpg" alt="Tech Interface">
+      <div class="slide-caption">
+        <h3 class="text-2xl font-bold">Enterprise-Grade Performance</h3>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://img.freepik.com/free-photo/modern-office-desk-composition-with-technological-device_23-2147916800.jpg" alt="Tech Workspace">
+      <div class="slide-caption">
+        <h3 class="text-2xl font-bold">Open Source & Customizable</h3>
+      </div>
+    </div>
+    <div class="dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+  </div>
   <section class="px-6 py-24 md:py-32 max-w-4xl mx-auto text-center">
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
       AI Agents That Actually Build Your SaaS—While You Sleep
@@ -25,13 +73,10 @@
       </a>
     </div>
   </section>
-
-  <!-- Features -->
   <section class="px-6 py-20 bg-gray-50">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-2xl md:text-3xl font-bold text-center">Built by SaaS Founders, for SaaS Founders</h2>
       <div class="mt-12 grid gap-8 md:grid-cols-3">
-        
         <div class="space-y-3">
           <div class="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center text-white text-lg font-bold">O</div>
           <h3 class="text-lg font-semibold">Open Source &amp; Fully Customizable</h3>
@@ -55,13 +100,10 @@
       </div>
     </div>
   </section>
-
-  <!-- Social Proof -->
   <section class="px-6 py-20">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-2xl md:text-3xl font-bold">Trusted by Top SaaS Founders Shipping at Hyperspeed</h2>
       <div class="mt-12 grid grid-cols-3 gap-8">
-        
         <div>
           <div class="text-3xl md:text-4xl font-bold">500+</div>
           <div class="mt-1 text-sm text-gray-500">Waitlist Spots Claimed</div>
@@ -77,13 +119,10 @@
       </div>
     </div>
   </section>
-
-  <!-- Benefits -->
   <section class="px-6 py-20 bg-gray-50">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl md:text-3xl font-bold text-center">Why SaaS Founders Are Ditching Legacy Tools for Cooply</h2>
       <div class="mt-12 space-y-8">
-        
         <div class="flex gap-6 items-start">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-bold">1</div>
           <div>
@@ -108,8 +147,6 @@
       </div>
     </div>
   </section>
-
-  <!-- CTA -->
   <section class="px-6 py-24 text-center">
     <div class="max-w-2xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold">Join 500+ Founders Building the Future with AI</h2>
@@ -121,13 +158,10 @@
       </div>
     </div>
   </section>
-
-  <!-- FAQ -->
   <section class="px-6 py-20 bg-gray-50">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-2xl md:text-3xl font-bold text-center">Frequently Asked Questions</h2>
       <div class="mt-12 space-y-6">
-        
         <details class="group border-b border-gray-200 pb-6">
           <summary class="flex justify-between items-center cursor-pointer list-none text-left">
             <span class="font-medium">When will Cooply launch?</span>
@@ -166,11 +200,108 @@
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
   <footer class="px-6 py-12 text-center text-sm text-gray-400">
     <p>&copy; 2026 Cooply. All rights reserved.</p>
   </footer>
-
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    const container = document.querySelector('.slideshow-container');
+    let autoPlayInterval;
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      showSlide(currentIndex);
+    }
+    function currentSlide(index) {
+      currentIndex = index;
+      showSlide(currentIndex);
+      resetAutoPlay();
+    }
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(nextSlide, 7000);
+    }
+    function stopAutoPlay() {
+      clearInterval(autoPlayInterval);
+    }
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      stopAutoPlay();
+    });
+    container.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+    });
+    container.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const endX = e.clientX;
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      resetAutoPlay();
+    });
+    container.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        resetAutoPlay();
+      }
+    });
+    container.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      stopAutoPlay();
+    }, { passive: true });
+    container.addEventListener('touchmove', (e) => {
+      if (!startX || !startY) return;
+      const endX = e.touches[0].clientX;
+      const endY = e.touches[0].clientY;
+      const diffX = startX - endX;
+      const diffY = startY - endY;
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+    container.addEventListener('touchend', (e) => {
+      if (!startX) return;
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      startX = 0;
+      startY = 0;
+      resetAutoPlay();
+    });
+    startAutoPlay();
+  </script>
 </body>
 </html>
